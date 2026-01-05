@@ -19,7 +19,7 @@ public class Cart {
     @OneToOne(fetch = FetchType.LAZY)
     private User user;
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Cartlteam > cartItems = new HashSet<>();
+    private Set<CartItem> cartItems = new HashSet<>();
     private double totalSellingPrice;
     private int totalItem;
     private int totalMrpPrice;
