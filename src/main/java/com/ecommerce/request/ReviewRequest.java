@@ -5,14 +5,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class AddItemRequest {
+@NoArgsConstructor
+public class ReviewRequest {
     private Long productId;
-
-    private String size;
-
-    private int quantity;
-
-    private Integer price;
+    private String review;
 }
