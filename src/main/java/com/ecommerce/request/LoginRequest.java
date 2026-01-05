@@ -7,12 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AddItemRequest {
-    private Long productId;
-
-    private String size;
-
-    private int quantity;
-
-    private Integer price;
+public class LoginRequest {
+    private String email;
+    private String password;
+    private String otp;
 }
