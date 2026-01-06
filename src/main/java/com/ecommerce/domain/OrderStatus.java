@@ -1,4 +1,11 @@
 package com.ecommerce.domain;
 
-public class OrderStatus {
+public enum OrderStatus {
+    PENDING,
+    PLACED,
+    CONFIRMED,
+    SHIPPED,
+    DELIVERED,
+    CANCELLED
+
 }

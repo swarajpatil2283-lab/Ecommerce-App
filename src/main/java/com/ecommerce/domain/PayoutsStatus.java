@@ -1,4 +1,6 @@
 package com.ecommerce.domain;
 
-public class PayoutsStatus {
+public enum PayoutsStatus {
+    PENDING,
+    SUCCESS
 }

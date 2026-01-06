@@ -1,4 +1,9 @@
 package com.ecommerce.domain;
 
-public class HomeCategorySection {
+public enum HomeCategorySection {
+    ELECTRIC_CATEGORIES,
+    GRID,
+    SHOP_BY_CATEGORIES,
+    DEALS
+
 }
