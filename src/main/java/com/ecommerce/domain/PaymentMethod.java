@@ -1,4 +1,7 @@
 package com.ecommerce.domain;
 
-public class PaymentMethod {
+public enum PaymentMethod {
+    RAZORPAY,
+    STRIPE
+
 }

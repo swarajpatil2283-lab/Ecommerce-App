@@ -1,4 +1,7 @@
 package com.ecommerce.domain;
 
-public class USER_ROLE {
+public enum USER_ROLE {
+    ROLE_CUSTOMER,
+    ROLE_SELLER,
+    ROLE_ADMIN
 }

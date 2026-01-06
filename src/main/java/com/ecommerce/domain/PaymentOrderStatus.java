@@ -1,4 +1,5 @@
 package com.ecommerce.domain;
 
-public class PaymentOrderStatus {
+public enum PaymentOrderStatus {
+    PENDING,SUCCESS,FAILED
 }
