@@ -5,7 +5,6 @@ import com.ecommerce.exception.SellerException;
 import com.ecommerce.exception.UserException;
 import com.ecommerce.model.VerificationCode;
 import com.ecommerce.request.LoginRequest;
-import com.ecommerce.request.ResetPasswordRequest;
 import com.ecommerce.request.SignupRequest;
 import com.ecommerce.response.ApiResponse;
 import com.ecommerce.response.AuthResponse;
@@ -18,9 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.ecommerce.model.*;
-import com.ecommerce.repository.VerificationCodeRepository;
-import com.ecommerce.service.authService;
+import com.ecommerce.service.AuthService;
 
 
 
