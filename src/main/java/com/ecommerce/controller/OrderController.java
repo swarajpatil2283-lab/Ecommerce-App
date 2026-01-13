@@ -1,7 +1,7 @@
 package com.ecommerce.controller;
 import com.razorpay.PaymentLink;
 import com.razorpay.RazorpayException;
-import com.ecommerce.exception.StripeException;
+import com.stripe.exception.StripeException;
 import com.ecommerce.domain.PaymentMethod;
 import com.ecommerce.exception.OrderException;
 import com.ecommerce.exception.SellerException;
@@ -33,7 +33,6 @@ public class OrderController {
     private final SellerReportService sellerReportService;
     private final SellerService sellerService;
 
-
     @PostMapping()
     public ResponseEntity<PaymentLinkResponse> createOrderHandler(
             @RequestBody Address spippingAddress,
@@ -58,8 +57,9 @@ public class OrderController {
 
 
             res.setPayment_link_url(paymentUrl);
-//			res.setPayment_link_id(paymentUrlId);
-            paymentOrder.setPaymentLinkId(paymentUrlId);
+
+
+            paymentOrder.setPaymentLinked(paymentUrlId);
             paymentOrderRepository.save(paymentOrder);
         }
         else{
@@ -71,6 +71,10 @@ public class OrderController {
         return new ResponseEntity<>(res,HttpStatus.OK);
 
     }
+
+
+
+
 
     @GetMapping("/user")
     public ResponseEntity< List<Order>> usersOrderHistoryHandler(

@@ -1,9 +1,9 @@
 package com.ecommerce.model;
 
+import com.ecommerce.domain.PaymentMethod;
+import com.ecommerce.domain.PaymentOrderStatus;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -12,6 +12,8 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+
+
 public class PaymentOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

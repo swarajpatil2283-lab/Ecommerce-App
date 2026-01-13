@@ -5,9 +5,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProductDetailsBotServiceImpl implements ProductDetailsBotService{
 
-
     @Override
-    public String productDetailsChatBot(String prompt) {
+    public String simpleChat(String prompt) {
         return "";
     }
 }
+
