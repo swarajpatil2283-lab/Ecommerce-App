@@ -4,9 +4,11 @@ import com.ecommerce.mapper.OrderMapper;
 import com.ecommerce.mapper.ProductMapper;
 import com.ecommerce.model.Cart;
 import com.ecommerce.model.Order;
+import com.ecommerce.model.Product;
 import com.ecommerce.model.User;
 import com.ecommerce.repository.CartRepository;
 import com.ecommerce.repository.OrderRepository;
+import com.ecommerce.repository.ProductRepository;
 import com.ecommerce.repository.UserRepository;
 import com.ecommerce.response.ApiResponse;
 import com.ecommerce.response.FunctionResponse;
@@ -25,13 +27,13 @@ import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
-public class AiChatBotServiceImpl implements AichatBotService {
+public class AiChatBotServiceImpl implements AiChatBotService {
     String GEMINI_API_KEY = "AIzaSyDp-jeRRqqbr08scpIn1p9rLEL_Nqv5Zuo";
     private final CartRepository cartRepository;
 
     private final OrderRepository orderRepository;
 
-    private final ProdctRpository prodctRpository;
+    private final ProductRepository prodctRpository;
     private final UserRepository userRepository;
 
     private JSONArray createFunctionDeclarations() {
@@ -113,7 +115,7 @@ public class AiChatBotServiceImpl implements AichatBotService {
                 break;
             case "getProductDetails":
 //                Long productId = Long.parseLong(args.getString("productId"));
-                Product product = productRepository.findById(productId).orElseThrow(
+                Product product = prodctRpository.findById(productId).orElseThrow(
                         () -> new ProductException("product not found")
                 );
 
