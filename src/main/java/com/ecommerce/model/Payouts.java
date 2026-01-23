@@ -1,5 +1,6 @@
 package com.ecommerce.model;
 
+import com.ecommerce.domain.PayoutsStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

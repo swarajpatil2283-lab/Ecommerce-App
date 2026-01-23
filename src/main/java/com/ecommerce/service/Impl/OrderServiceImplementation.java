@@ -71,6 +71,7 @@ public class OrderServiceImplementation implements OrderService {
 
                 .collect(Collectors.groupingBy(item -> item.getProduct().getSeller().getId()));
 
+
         Set<Order> orders = new HashSet<>();
 
         for (Map.Entry<Long, List<CartItem>> entry : itemsBySeller.entrySet()) {
@@ -118,7 +119,7 @@ public class OrderServiceImplementation implements OrderService {
 
                 orderItem.setMrpPrice(item.getMrpPrice());
 
-                orderItem.setProduct(item.getProduct());
+                orderItem.setProduct((Product) item.getProduct());
 
                 orderItem.setQuantity(item.getQuantity());
 

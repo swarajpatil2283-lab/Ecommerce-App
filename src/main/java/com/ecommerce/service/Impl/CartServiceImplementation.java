@@ -36,7 +36,7 @@ public class CartServiceImplementation implements CartService {
 
     public Cart findUserCart(User user) {
 
-        Cart cart =	cartRepository.findByUserId(user.getId());
+        Cart cart =	CartRepository.findByUserId(user.getId());
 
         int totalPrice=0;
 
@@ -68,7 +68,7 @@ public class CartServiceImplementation implements CartService {
 
     }
 
-    public staProtic int calculateDiscountPercentage(double mrpPrice, double sellingPrice) {
+    public static int calculateDiscountPercentage(double mrpPrice, double sellingPrice) {
 
         if (mrpPrice <= 0) {
 

@@ -12,6 +12,7 @@ import com.ecommerce.response.PaymentLinkResponse;
 import com.ecommerce.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -56,7 +57,7 @@ public class PaymentController {
 //                    order.getId());
 //        }
 
-        return new ResponseEntity<>(null, HttpStatus.CREATED);
+        return new ResponseEntity<>((HttpHeaders) null, HttpStatus.CREATED);
     }
 
 
@@ -88,7 +89,7 @@ public class PaymentController {
                 report.setTotalSales(report.getTotalSales()+order.getOrderItems().size());
                 sellerReportService.updateSellerReport(report);
             }
-            Cart cart=cartRepository.findByUserId(user.getId());
+            Cart cart= CartRepository.findByUserId(user.getId());
             cart.setCouponPrice(0);
             cart.setCouponCode(null);
 //        Set<CartItem> items=cart.getCartItems();

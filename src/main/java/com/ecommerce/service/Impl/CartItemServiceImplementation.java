@@ -1,4 +1,5 @@
 package com.ecommerce.service.Impl;
+
 import com.ecommerce.exception.CartItemException;
 
 import com.ecommerce.exception.UserException;
@@ -15,8 +16,6 @@ import com.ecommerce.repository.CartItemRepository;
 
 import com.ecommerce.service.CartItemService;
 
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
@@ -28,6 +27,7 @@ import java.util.Optional;
 
 
 public class CartItemServiceImplementation implements CartItemService {
+    private final CartItemRepository cartItemRepository;
     private CartItemService cartItemService;
 
     @Autowired
@@ -56,7 +56,7 @@ public class CartItemServiceImplementation implements CartItemService {
 
             item.setSellingPrice(item.getQuantity()*item.getProduct().getSellingPrice());
 
-            return CartItemRepository.save(item);
+            return cartItemRepository.save(item);
 
 
         }
@@ -90,7 +90,7 @@ public class CartItemServiceImplementation implements CartItemService {
 
         else {
 
-            throw new UserException("you can't remove anothor users item");
+            throw new UserException("you can't remove another users item");
 
         }
 
@@ -100,7 +100,7 @@ public class CartItemServiceImplementation implements CartItemService {
 
     public CartItem findCartItemById(Long cartItemId) throws CartItemException {
 
-        Optional<CartItem> opt=CartItemRepository.findById(cartItemId);
+        Optional<CartItem> opt=cartItemRepository.findById(cartItemId);
 
         if(opt.isPresent()) {
 

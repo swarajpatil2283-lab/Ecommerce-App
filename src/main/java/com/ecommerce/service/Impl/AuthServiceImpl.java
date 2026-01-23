@@ -4,7 +4,6 @@ import com.ecommerce.domain.USER_ROLE;
 import com.ecommerce.exception.SellerException;
 import com.ecommerce.exception.UserException;
 import com.ecommerce.model.Cart;
-import com.ecommerce.model.PasswordResetToken;
 import com.ecommerce.model.User;
 import com.ecommerce.model.VerificationCode;
 import com.ecommerce.repository.CartRepository;
@@ -12,9 +11,7 @@ import com.ecommerce.repository.UserRepository;
 import com.ecommerce.repository.VerificationCodeRepository;
 import com.ecommerce.request.LoginRequest;
 
-import com.ecommerce.request.ResetPasswordRequest;
 import com.ecommerce.request.SignupRequest;
-import com.ecommerce.response.ApiResponse;
 import com.ecommerce.response.AuthResponse;
 import com.ecommerce.service.AuthService;
 import com.ecommerce.service.EmailService;
@@ -46,8 +43,9 @@ public class AuthServiceImpl implements AuthService {
     private final UserRepository userRepository;
 
     private final JwtProvider jwtProvider;
-    private final CustomeUserServiceImplementation customeUserServiceImplementation;
+    private final CustomUserServiceImplementation customeUserServiceImplementation;
     private final CartRepository cartRepository;
+    private VerificationCodeRepository verificationCodeRepository;
 
 
     @Override
@@ -61,12 +59,10 @@ public class AuthServiceImpl implements AuthService {
             userService.findUserByEmail(email);
         }
 
-        VerificationCode isExist = VerificationCodeRepository
-
-                .findEmail(email);
+        VerificationCode isExist = VerificationCodeRepository.findEmail(email);
 
         if (isExist != null) {
-            VerificationCodeRepository.delete(isExist);
+            verificationCodeRepository.delete(isExist);
         }
 
         String otp = OtpUtils.generateOTP();
@@ -74,7 +70,7 @@ public class AuthServiceImpl implements AuthService {
         VerificationCode verificationCode = new VerificationCode();
         verificationCode.setOtp(otp);
         verificationCode.setEmail(email);
-        VerificationCodeRepository.save(verificationCode);
+        verificationCodeRepository.save(verificationCode);
 
         String subject = "Amit Bazaar Login/Signup Otp";
         String text = "your login otp is - ";
@@ -90,7 +86,7 @@ public class AuthServiceImpl implements AuthService {
 
         String otp = req.getOtp();
 
-        VerificationCode verificationCode = VerificationCodeRepository.findByEmail(email);
+        VerificationCode verificationCode = verificationCodeRepository.findByEmail(email);
 
         if (verificationCode == null || !verificationCode.getOtp().equals(otp)) {
             throw new SellerException("wrong otp...");
@@ -169,7 +165,7 @@ public class AuthServiceImpl implements AuthService {
             System.out.println("sign in userDetails - null ");
             throw new BadCredentialsException("Invalid username or password");
         }
-        VerificationCode verificationCode = VerificationCodeRepository.findByEmail(username);
+        VerificationCode verificationCode = verificationCodeRepository.findByEmail(username);
 
         if (verificationCode == null || !verificationCode.getOtp().equals(otp)) {
             throw new SellerException("wrong otp...");

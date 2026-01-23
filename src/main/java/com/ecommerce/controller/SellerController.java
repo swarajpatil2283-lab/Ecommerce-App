@@ -11,11 +11,10 @@ import com.ecommerce.repository.VerificationCodeRepository;
 import com.ecommerce.response.ApiResponse;
 import com.ecommerce.response.AuthResponse;
 import com.ecommerce.service.*;
-import com.ecommerce.service.Impl.CustomeUserServiceImplementation;
+import com.ecommerce.service.Impl.CustomUserServiceImplementation;
 import com.ecommerce.utils.OtpUtils;
 import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -41,7 +40,7 @@ public class SellerController {
     private final VerificationCodeRepository verificationCodeRepository;
     private final VerificationService verificationService;
     private final JwtProvider jwtProvider;
-    private final CustomeUserServiceImplementation customeUserServiceImplementation;
+    private final CustomUserServiceImplementation customeUserServiceImplementation;
 
 
     @PostMapping("/sent/login-top")

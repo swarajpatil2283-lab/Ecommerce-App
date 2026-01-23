@@ -30,14 +30,14 @@ import com.ecommerce.repository.UserRepository;
 @Service
 
 
-public class CustomeUserServiceImplementation implements UserDetailsService{
+public class CustomUserServiceImplementation implements UserDetailsService{
     private final UserRepository userRepository;
 
     private final SellerRepository sellerRepository;
 
     private static final String SELLER_PREFIX = "seller_";
 
-    public CustomeUserServiceImplementation(UserRepository userRepository, SellerRepository sellerRepository) {
+    public CustomUserServiceImplementation(UserRepository userRepository, SellerRepository sellerRepository) {
 
         this.userRepository = userRepository;
 
