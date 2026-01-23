@@ -1,5 +1,6 @@
 package com.ecommerce.model;
 
+import com.ecommerce.domain.HomeCategorySection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

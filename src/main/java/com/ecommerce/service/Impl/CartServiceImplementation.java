@@ -13,8 +13,6 @@ import com.ecommerce.repository.CartItemRepository;
 
 import com.ecommerce.repository.CartRepository;
 
-import com.ecommerce.service.CartItemService;
-
 import com.ecommerce.service.CartService;
 
 import com.ecommerce.service.ProductService;
@@ -28,7 +26,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 
 
-public class CartServieImplementation implements CartService {
+public class CartServiceImplementation implements CartService {
     private final CartRepository cartRepository;
 
     private final CartItemRepository cartItemRepository;

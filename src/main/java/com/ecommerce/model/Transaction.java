@@ -18,4 +18,15 @@ public class Transaction {
     @ManyToOne
     private Seller seller;
     private LocalDateTime date=LocalDateTime.now();
+
+    public void setCustomer(User user) {
+    }
+
+    public void setOrder(Order order) {
+
+    }
+
+    public void setSeller(Seller seller) {
+
+    }
 }

@@ -1,15 +1,11 @@
 package com.ecommerce.service;
 
-import com.razorpay.PaymentLink;
 import com.razorpay.RazorpayException;
 import com.stripe.exception.StripeException;
-import com.ecommerce.domain.PaymentMethod;
 import com.ecommerce.model.Order;
 import com.ecommerce.model.PaymentOrder;
 import com.ecommerce.model.User;
-import com.ecommerce.response.PaymentLinkResponse;
 
-import java.util.List;
 import java.util.Set;
 
 public interface PaymentService {
@@ -23,9 +19,9 @@ public interface PaymentService {
     Boolean ProceedPaymentOrder (PaymentOrder paymentOrder,
                                  String paymentId, String paymentLinkId) throws RazorpayException;
 
-    PaymentLink createRazorpayPaymentLink(User user,
-                                          Long Amount,
-                                          Long orderId) throws RazorpayException;
+    Object createRazorpayPaymentLink(User user,
+                                     Long Amount,
+                                     Long orderId) throws RazorpayException;
 
     String createStripePaymentLink(User user, Long Amount,
                                    Long orderId) throws StripeException;

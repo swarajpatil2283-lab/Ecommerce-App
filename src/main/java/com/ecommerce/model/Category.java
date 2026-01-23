@@ -21,4 +21,7 @@ public class Category {
 
     @NotNull
     private Integer level;
+
+    public void setParentCategory(Category category1) {
+    }
 }
