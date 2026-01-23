@@ -1,5 +1,7 @@
 package com.ecommerce.model;
 
+import com.ecommerce.domain.AccountStatus;
+import com.ecommerce.domain.USER_ROLE;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -32,9 +34,9 @@ public class Seller {
 
     private String GSTIN;
 
-    private USEE_ROLE role;
+    private USER_ROLE role;
 
     private boolean isEmailVerified=false;
 
-    private AccountStatus accountStatus = AccountStatus_VERIFICATION;
+    private AccountStatus accountStatus = AccountStatus.PENDING_VERIFICATION;
 }

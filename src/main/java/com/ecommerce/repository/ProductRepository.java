@@ -21,4 +21,8 @@ public interface ProductRepository extends JpaRepository<Product,Long>, JpaSpeci
             "LIKE LOWER(CONCAT('%', :query, '%')))"
     )
     List<Product>searchProduct(@Param("query") String query);
+
+    Category findByCategoryId(String category);
+
+    Category findbyCategoryId(String category2);
 }
