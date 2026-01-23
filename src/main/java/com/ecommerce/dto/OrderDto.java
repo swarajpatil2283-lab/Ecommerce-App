@@ -19,8 +19,6 @@ import java.util.List;
 
         private Long id;
 
-
-
         private String OrderId;
 
         private UserDto user;
@@ -47,6 +45,12 @@ import java.util.List;
         private LocalDateTime deliverDate = orderDate.plusDays(7);
 
 
+        public void setOrderStatus(OrderStatus orderStatus) {
+        }
+
+        public OrderStatus getOrderStatus() {
+            return null;
+        }
     }
 
 

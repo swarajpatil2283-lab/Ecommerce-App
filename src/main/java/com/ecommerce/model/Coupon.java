@@ -25,4 +25,8 @@ public class Coupon {
     private boolean isActive=true;
     @ManyToMany(mappedBy = "usedCoupons")
     private Set<User> usedByUser=new HashSet<>();
+
+    public double getDiscountPercentage() {
+        return 0;
+    }
 }

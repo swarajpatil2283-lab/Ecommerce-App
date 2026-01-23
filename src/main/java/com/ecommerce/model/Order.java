@@ -1,5 +1,6 @@
 package com.ecommerce.model;
 
+import com.ecommerce.domain.OrderStatus;
 import com.ecommerce.domain.PaymentOrderStatus;
 import com.ecommerce.domain.PaymentStatus;
 import jakarta.persistence.*;

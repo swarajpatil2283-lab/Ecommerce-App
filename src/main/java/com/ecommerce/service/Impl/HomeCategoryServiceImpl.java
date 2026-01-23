@@ -17,26 +17,20 @@ import java.util.List;
 @RequiredArgsConstructor
 
 
-public class HomeCategoryServiceImpl {
+public class HomeCategoryServiceImpl implements HomeCategoryService{
     private final HomeCategoryRepository homeCategoryRepository;
 
 
     @Override
-
     public HomeCategory createCategory(HomeCategory categories) {
-
         return homeCategoryRepository.save(categories);
-
     }
 
     @Override
-
     public List<HomeCategory> createCategories(List<HomeCategory> categories) {
-
         if (homeCategoryRepository.findAll().isEmpty()) {
 
             return homeCategoryRepository.saveAll(categories);
-
         }
 
         return homeCategoryRepository.findAll();
@@ -44,36 +38,30 @@ public class HomeCategoryServiceImpl {
     }
 
     @Override
-
     public List<HomeCategory> getAllCategories() {
-
         return homeCategoryRepository.findAll();
-
     }
 
     @Override
-
-    public HomeCategory updateCategory(HomeCategory category, Long id) throws Exception {
-
+    public HomeCategory updateCategory(HomeCategory categories, Long id) throws Exception {
         HomeCategory existingCategory = homeCategoryRepository.findById(id)
 
                 .orElseThrow(() -> new Exception("Category not found"));
 
-        if(category.getImage()!=null){
+        if(categories.getImage()!=null){
 
-            existingCategory.setImage(category.getImage());
+            existingCategory.setImage(categories.getImage());
 
         }
 
-        if(category.getCategoryId()!=null){
+        if(categories.getCategoryId()!=null){
 
-            existingCategory.setCategoryId(category.getCategoryId());
+            existingCategory.setCategoryId(categories.getCategoryId());
 
         }
 
         return homeCategoryRepository.save(existingCategory);
 
     }
+    }
 
-
-}

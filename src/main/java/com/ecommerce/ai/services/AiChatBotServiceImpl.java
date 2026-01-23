@@ -103,7 +103,7 @@ public class AiChatBotServiceImpl implements AiChatBotService {
         switch (functionName) {
             case "getUserCart":
 //                Long userId = Long.parseLong(args.getString("userId"));
-                Cart cart = cartRepository.findByUserId(userId);
+                Cart cart = CartRepository.findByUserId(userId);
                 System.out.println("cart: " + cart.getId());
                 res.setUserCart(cart);
                 break;
