@@ -3,7 +3,9 @@ package com.ecommerce.model;
 import com.ecommerce.domain.PaymentMethod;
 import com.ecommerce.domain.PaymentOrderStatus;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -25,7 +27,7 @@ public class PaymentOrder {
 
     private PaymentMethod paymentMethod;
 
-    private String paymentLinked;
+    private String paymentLinkId;
 
     @ManyToOne
     private User user;

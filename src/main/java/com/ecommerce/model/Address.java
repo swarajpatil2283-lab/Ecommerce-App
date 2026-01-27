@@ -3,7 +3,9 @@ import com.sun.java.accessibility.util.AccessibilityListenerList;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.*;
+
 
 @Entity
 @Getter
@@ -12,8 +14,10 @@ import lombok.*;
 @NoArgsConstructor
 @EqualsAndHashCode
 public class Address {
-    @id
+
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+
     private long id;
 
     private String locality;

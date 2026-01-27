@@ -1,8 +1,14 @@
 package com.ecommerce.model;
 
+
 import jakarta.persistence.*;
 import lombok.Data;
+import java.util.Date;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
+@Entity
+@Data
 public class Notification {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,6 +19,7 @@ public class Notification {
 
     private String message;
     @Temporal(TemporalType.TIMESTAMP)
-    private Data sentAt;
+    private Date sentAt;
+
     private boolean readStatus;
 }
