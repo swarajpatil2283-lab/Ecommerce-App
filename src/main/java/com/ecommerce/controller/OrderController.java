@@ -59,7 +59,7 @@ public class OrderController {
             res.setPayment_link_url(paymentUrl);
 
 
-            paymentOrder.setPaymentLinked(paymentUrlId);
+            paymentOrder.setPaymentLinkId(paymentUrlId);
             paymentOrderRepository.save(paymentOrder);
         }
         else{

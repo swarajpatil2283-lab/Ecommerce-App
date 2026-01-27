@@ -11,8 +11,10 @@ import java.util.Date;
 @RequiredArgsConstructor
 @AllArgsConstructor
 public class PasswordResetToken {
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @id
+
     private Integer id;
 
     private @NonNull String token;
